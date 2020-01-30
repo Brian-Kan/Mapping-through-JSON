@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script src="queens-data.js"></script>
+    <script>
+        // we're importing our data from a JS file, and then 
+        const queensArray = JSON.parse(queensData);
+        console.log(queensArray);
+        // 1. write a function which takes in an array, and returns an array of objects
+        // with the queen's name and their quote.
+        // ie; [ { "name": "cynthia lee fontaine", "quote": "How you doin' mis amores? Do you want to see my cucu?"} ]
+
+        
+
+        const getQueenNQuote = function (array) {
+            const queenNQuotes = []
+            for( i = 0; i < array.length; i++){
+
+                queenNQuotes.push(
+                    {
+                        name: array[i].name,
+                        quote: array[i].quote
+                    }
+                )
+            }
+
+            return queenNQuotes            
+        }
+
+        // console.log(getQueenNQuote(queensArray))
+
+
+        // MAP FUNCTION VERSION!!!!!!!
+        
+        const getNameNQuote = function (array) {
+
+            // const queens = array.map(queen => {
+            //     return {
+            //         name: queen.name, 
+            //         quote: queen.quote
+            //     }
+            // }
+
+            const queens = array.map(function(queen) {
+                const queenName = queen.name
+                const queenQuote = queen.quote
+                
+                return {name: queen.name, quote: queen.quote}
+            })
+            // return queens
+            console.log(queens)
+
+        }
+
+        // console.log(getNameNQuote(queensArray))
+        getNameNQuote(queensArray)
+
+    </script>
+</body>
+</html>
